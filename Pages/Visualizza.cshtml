@@ -1,0 +1,34 @@
+﻿@page
+@model Papere.Pages.VisModel
+@{
+    ViewData["Title"] = "Visualizza";
+}
+<h4>Visualizza</h4>
+<br />
+<form method="post">
+    <input type="text" asp-for="@Model.tosearch"/>
+    <input type="submit" value="cerca" />
+</form>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>ALI</th>
+        <th>MODIFICA</th>
+    </tr>
+    @foreach (var a in Model.elePapere.Where(p => p.Nome == (Model.tosearch == null ? p.Nome : Model.tosearch)))
+    {
+        <tr>
+            <td>@a.Id</td>
+            <td>@a.Nome</td>
+            <td>@a.Ali</td>
+            <td>
+                <a asp-route-id="@a.Id" asp-page="./Details">Visualizza</a> |
+                <a asp-route-id="@a.Id" asp-page="./Edit">Modifica</a> |
+                <a asp-route-id="@a.Id" asp-page="./Delete">Cancella</a>
+            </td>
+        </tr>
+    }
+
+</table>

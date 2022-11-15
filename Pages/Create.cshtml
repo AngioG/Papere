@@ -1,0 +1,18 @@
+﻿@page
+@model Papere.Pages.CreateModel
+@{
+    ViewData["title"] = "Create";
+}
+<h4>Inserisci</h4>
+<br />
+<form method="post">
+    <p>Nome</p>
+    <input type="text" asp-for="@Model.papera.Nome" />
+    <span asp-validation-for="@Model.papera.Nome" class="text-danger"></span>
+
+    <p>Ali</p>
+    <input type="number" asp-for="@Model.papera.Ali" />
+    <span asp-validation-for="@Model.papera.Ali" class="text-danger"></span>
+
+    <input type="submit" value="Inserisci" />
+</form>
